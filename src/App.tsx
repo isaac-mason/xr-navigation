@@ -1,5 +1,5 @@
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
 import {
   createXRStore,
   IfInSessionMode,
@@ -9,13 +9,14 @@ import {
   XR,
   XRMeshModel,
   XRSpace,
-} from "@react-three/xr";
-import { Fullscreen } from "@react-three/uikit";
-import { EnterXRButton } from "./EnterXRButton";
+} from '@react-three/xr'
+import { Fullscreen } from '@react-three/uikit'
+import { EnterXRButton } from './EnterXRButton'
+import { Navmesh } from './Navmesh'
 
 const store = createXRStore({
-  offerSession: "immersive-ar",
-});
+  offerSession: 'immersive-ar',
+})
 
 export default function App() {
   return (
@@ -26,7 +27,7 @@ export default function App() {
         <directionalLight position={[5, 5, 5]} />
         <Navigation />
         <OrbitControls />
-        <IfInSessionMode deny={["immersive-ar", "immersive-vr"]}>
+        <IfInSessionMode deny={['immersive-ar', 'immersive-vr']}>
           <Fullscreen
             flexDirection="row"
             padding={20}
@@ -41,20 +42,16 @@ export default function App() {
         </IfInSessionMode>
       </XR>
     </Canvas>
-  );
+  )
 }
 
 function Navigation() {
-  const meshes = useXRMeshes();
+  const meshes = useXRMeshes()
   return (
     <>
       {meshes.map((mesh, index) => (
-        <XRSpace key={index} space={mesh.meshSpace}>
-          <XRMeshModel mesh={mesh}>
-            <meshBasicMaterial wireframe />
-          </XRMeshModel>
-        </XRSpace>
+        <Navmesh key={index} mesh={mesh} />
       ))}
     </>
-  );
+  )
 }
