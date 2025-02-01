@@ -15,10 +15,12 @@
     "@react-three/fiber": "^8.17.12",
     "@react-three/uikit": "^0.8.5",
     "@react-three/xr": "^6.4.12",
+    "@recast-navigation/three": "^0.39.0",
     "@types/three": "^0.172.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "recast-navigation": "^0.38.0",
+    "recast-navigation": "^0.39.0",
+    "suspend-react": "^0.1.3",
     "three": "^0.172.0"
   },
   "devDependencies": {
